@@ -1,2 +1,3 @@
 # jenkins-java
-Repo for connecting Git to Jenkins
+
+Created for my Microservices and Devops Course
