@@ -1,11 +1,21 @@
-sh('git rev-parse HEAD > GIT_COMMIT')
-git_commit=readFile('GIT_COMMIT')
-// short SHA, possibly better for chat notifications, etc.
-short_commit=git_commit.take(6)
+pipeline {
+    agent any
 
-//create a GIT_COMMIT file in workspace and read back into a string in Pipeline
-// If you have your sources checked out in a 'src' subdir
-sh('cd src && git rev-parse HEAD > GIT_COMMIT')
-git_commit=readFile('src/GIT_COMMIT')
-// short SHA, possibly better for chat notifications, etc.
-short_commit=git_commit.take(6)
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
+    }
+}
